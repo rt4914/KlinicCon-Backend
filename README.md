@@ -5,10 +5,6 @@
   <h1><b>KlinicCon API</b></h1>
 </div>
 
-[![Build Status](https://img.shields.io/travis/rt4914/KlinicCon-Backend/main.svg)](https://travis-ci.org/rt4914/KlinicCon-Backend)
-[![Coverage Status](https://img.shields.io/coveralls/github/rt4914/KlinicCon-Backend/main.svg)](https://coveralls.io/github/rt4914/KlinicCon-Backend?branch=main)
-[![Version](https://img.shields.io/github/v/release/rt4914/KlinicCon-Backend)](https://github.com/rt4914/KlinicCon-Backend/releases)
-
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
@@ -207,8 +203,6 @@ See the [CHANGELOG.md](CHANGELOG.md) for a detailed history of changes.
 KlinicCon follows a client-server architecture, with a React frontend and a Ruby on Rails backend.
 
 # 🔒 Security <a name="security"></a>
-
-# 🔒 Security
 
 KlinicCon prioritizes data security and HIPAA compliance:
 
