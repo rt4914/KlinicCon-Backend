@@ -1,0 +1,54 @@
+                                   ################################################################################
+                                   #          Each line is a file pattern followed by our owner/teams             #
+                                   ################################################################################
+
+# This is a comment and will be ignored.
+
+# Global owner for everything in this repo
+* @rt4914
+
+# Owners/teams for backend (Ruby on Rails)
+app/     @kliniccon-rails-team @rt4914
+config/  @kliniccon-rails-team @rt4914
+db/      @kliniccon-rails-team @rt4914
+lib/     @kliniccon-rails-team @rt4914
+
+# Owners/teams for frontend (React)
+app/javascript/   @kliniccon-frontend-team @rt4914
+public/           @kliniccon-frontend-team @rt4914
+config/webpack/   @kliniccon-frontend-team @rt4914
+
+# Owners/teams for styling (Tailwind CSS)
+app/assets/stylesheets/   @kliniccon-css-team @rt4914
+app/javascript/styles/    @kliniccon-css-team @rt4914
+
+# Specific owners/teams for specific files
+Gemfile          @kliniccon-rails-team @rt4914
+Gemfile.lock     @kliniccon-rails-team @rt4914
+package.json     @kliniccon-frontend-team @rt4914
+yarn.lock        @kliniccon-frontend-team @rt4914
+tailwind.config.js @kliniccon-css-team @rt4914
+postcss.config.js  @kliniccon-css-team @rt4914
+
+# Owners/teams for documentation
+docs/     @kliniccon-docs-team @rt4914
+
+# Owners/teams for tests
+spec/     @kliniccon-test-team @rt4914
+test/     @kliniccon-test-team @rt4914
+
+# Owners/teams for CI/CD configuration
+.github/workflows/ @kliniccon-ci-team @rt4914
+
+# Owners/teams for database migrations
+db/migrate/ @kliniccon-rails-team @rt4914
+
+# Owners/teams for API
+app/controllers/api/ @kliniccon-api-team @rt4914
+app/serializers/ @kliniccon-api-team @rt4914
+
+# Owners/teams for views
+app/views/ @kliniccon-views-team @rt4914
+
+# Owners/teams for helpers
+app/helpers/ @kliniccon-helpers-team @rt4914
