@@ -17,7 +17,6 @@
   - [Install](#install)
   - [Usage](#usage)
 - [🔧 Configuration](#configuration)
-- [📚 API Documentation](#api-documentation)
 <!-- - [🧪 Running Tests](#running-tests)
 - [🚀 Deployment](#deployment) -->
 - [👥 Authors](#authors)
@@ -29,7 +28,7 @@
 - [🔒 Security](#security)
 - [📜 Code of Conduct](#code-of-conduct)
 - [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
+- [🙏 Acknowledgements](#acknowledgments)
 <!-- - [📝 License](#license) -->
 
 # 📖 About KlinicCon <a name="about-project"></a>
@@ -51,10 +50,6 @@ KlinicCon is a comprehensive clinical management system designed to revolutioniz
 
 - Appointment Scheduling
 - Billing
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- [Backend API](https://kliniccon-api.herokuapp.com)
 
 # 💻 Getting Started <a name="getting-started"></a>
 
