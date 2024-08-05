@@ -176,8 +176,6 @@ KlinicCon follows a client-server architecture, with a React frontend and a Ruby
 
 # 🔒 Security <a name="security"></a>
 
-# 🔒 Security
-
 KlinicCon prioritizes data security and HIPAA compliance:
 
 - All data is encrypted at rest and in transit
