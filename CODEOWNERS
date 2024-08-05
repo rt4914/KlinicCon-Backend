@@ -44,11 +44,11 @@ test/     @kvngjamesng @rt4914
 db/migrate/ @musangamfure @rt4914
 
 # Owners/teams for API
-app/controllers/api/ @kliniccon-api-team @rt4914
-app/serializers/ @rray524 @rt4914
+app/controllers/api/ @rray524 @rt4914
+app/serializers/ @aniketpatidar @rt4914
 
 # Owners/teams for views
-app/views/ @aniketpatidar @rt4914
+app/views/ @kvngjamesng @rt4914
 
 # Owners/teams for helpers
-app/helpers/ @kvngjamesng @rt4914
+app/helpers/ @mohitgupta121 @rt4914
