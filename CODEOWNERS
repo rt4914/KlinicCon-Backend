@@ -8,47 +8,47 @@
 * @rt4914
 
 # Owners/teams for backend (Ruby on Rails)
-app/     @aniketpatidar @rt4914
-config/  @kvngjamesng @rt4914
-db/      @mohitgupta121 @rt4914
-lib/     @musangamfure @rt4914
+app/     @rt4914
+config/  @rt4914
+db/      @rt4914
+lib/     @rt4914
 
 # Owners/teams for frontend (React)
-app/javascript/   @rray524 @rt4914
-public/           @vanamraghu @rt4914
-config/webpack/   @aniketpatidar @rt4914
+app/javascript/   @rt4914
+public/           @rt4914
+config/webpack/   @rt4914
 
 # Owners/teams for styling (Tailwind CSS)
-app/assets/stylesheets/  @kvngjamesng @rt4914
-app/javascript/styles/    @mohitgupta121 @rt4914
+app/assets/stylesheets/  @rt4914
+app/javascript/styles/    @rt4914
 
 # Specific owners/teams for specific files
-Gemfile          @musangamfure @rt4914
-Gemfile.lock     @rray524 @rt4914
-package.json     @aniketpatidar @rt4914
-yarn.lock        @kvngjamesng @rt4914
-tailwind.config.js @mohitgupta121 @rt4914
-postcss.config.js  @musangamfure @rt4914
+Gemfile          @rt4914
+Gemfile.lock     @rt4914
+package.json     @rt4914
+yarn.lock        @rt4914
+tailwind.config.js @rt4914
+postcss.config.js  @rt4914
 
 # Owners/teams for documentation
-docs/     @rray524 @rt4914
+docs/     @rt4914
 
 # Owners/teams for tests
-spec/     @aniketpatidar @rt4914
-test/     @kvngjamesng @rt4914
+spec/     @rt4914
+test/     @rt4914
 
 # Owners/teams for CI/CD configuration
-.github/workflows/ @mohitgupta121 @rt4914
+.github/workflows/ @rt4914
 
 # Owners/teams for database migrations
-db/migrate/ @musangamfure @rt4914
+db/migrate/ @rt4914
 
 # Owners/teams for API
-app/controllers/api/ @rray524 @rt4914
-app/serializers/ @aniketpatidar @rt4914
+app/controllers/api/ @rt4914
+app/serializers/ @rt4914
 
 # Owners/teams for views
-app/views/ @kvngjamesng @rt4914
+app/views/ @rt4914
 
 # Owners/teams for helpers
-app/helpers/ @mohitgupta121 @rt4914
+app/helpers/ @rt4914
