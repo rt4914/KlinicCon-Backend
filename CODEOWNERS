@@ -1,54 +1,52 @@
-                          ################################################################################
-                          #          Each line is a file pattern followed by our owner/teams             #
-                          ################################################################################
+                                                              # Codeowners for the project
 
-# This is a comment and will be ignored.
+
 
 # Global owner for everything in this repo
 * @rt4914
 
 # Owners/teams for backend (Ruby on Rails)
-app/     @rt4914
-config/  @rt4914
-db/      @rt4914
-lib/     @rt4914
+app/     
+config/  
+db/      
+lib/     
 
 # Owners/teams for frontend (React)
-app/javascript/   @rt4914
-public/           @rt4914
-config/webpack/   @rt4914
+app/javascript/   
+public/           
+config/webpack/   
 
 # Owners/teams for styling (Tailwind CSS)
-app/assets/stylesheets/  @rt4914
-app/javascript/styles/    @rt4914
+app/assets/stylesheets/  
+app/javascript/styles/    
 
 # Specific owners/teams for specific files
-Gemfile          @rt4914
-Gemfile.lock     @rt4914
-package.json     @rt4914
-yarn.lock        @rt4914
-tailwind.config.js @rt4914
-postcss.config.js  @rt4914
+Gemfile          
+Gemfile.lock     
+package.json     
+yarn.lock        
+tailwind.config.js 
+postcss.config.js  
 
 # Owners/teams for documentation
-docs/     @rt4914
+docs/     
 
 # Owners/teams for tests
-spec/     @rt4914
-test/     @rt4914
+spec/     
+test/     
 
 # Owners/teams for CI/CD configuration
-.github/workflows/ @rt4914
+.github/workflows/ 
 
 # Owners/teams for database migrations
-db/migrate/ @rt4914
+db/migrate/ 
 
 # Owners/teams for API
-app/controllers/api/ @rt4914
-app/serializers/ @rt4914
+app/controllers/api/ 
+app/serializers/ 
 
 # Owners/teams for views
-app/views/ @rt4914
+app/views/ 
 
 # Owners/teams for helpers
-app/helpers/ @rt4914
+app/helpers/ 
