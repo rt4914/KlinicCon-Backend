@@ -23,18 +23,22 @@ Resolves #01 <!-- issue number -->
 
 <!-- Please delete options that are not relevant. -->
 
-* Bug fix (non-breaking change which fixes an issue)
-* New feature (non-breaking change which adds functionality)
-* Breaking change (fix or feature that would cause existing functionality to not work as expected)
-* This change requires a documentation update
-* Documentation update
+- [ ] Bug fix
+- [ ] New feature
+- [ ] This change requires a documentation update
 
 ### How Has This Been Tested?
 
+<!-- Please provide steps as shown below so we can reproduce. -->
+
 <!--
 
-- Please provide instructions so we can reproduce.
-- Do we need to do anything else to verify your changes?
+Steps to reproduce the behavior:
+
+1. Go to the repository on GitHub.
+2. Click on the "Pull requests" tab.
+3. Click on the "New pull request" button.
+4. Verify the template content is loaded in the description field.
 
 -->
 
