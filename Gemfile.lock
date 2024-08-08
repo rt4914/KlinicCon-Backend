@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 97cfd1a1b0522a16b402e9d14c3248076b24c942
+  branch: main
+  specs:
+    faker (3.4.2)
+      i18n (>= 1.8.11, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -232,6 +240,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
+  faker!
   importmap-rails
   jbuilder
   pg (~> 1.1)
@@ -245,7 +254,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 3.3.2p78
+   ruby 3.3.4p94
 
 BUNDLED WITH
    2.5.11
