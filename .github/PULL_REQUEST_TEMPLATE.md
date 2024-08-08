@@ -23,23 +23,19 @@ Resolves #01 <!-- issue number -->
 
 <!-- Please delete options that are not relevant. -->
 
-- [ ] Bug fix
-- [ ] New feature
-- [ ] This change requires a documentation update
+- [ ] Refactor
+- [ ] Feature
+- [ ] Bug Fix
+- [ ] Optimization
+- [ ] Documentation Update
 
-### How Has This Been Tested?
+### How to test this PR?
 
 <!-- Please provide steps as shown below so we can reproduce. -->
 
-<!--
+<!-- Steps to tests this PR: -->
 
-Steps to reproduce the behavior:
-
-1. Go to the repository on GitHub.
-2. Click on the "Pull requests" tab.
-3. Click on the "New pull request" button.
-4. Verify the template content is loaded in the description field.
-
--->
-
-### Screenshots <!-- Optional -->
+<!-- 1. Go to '...' -->
+<!-- 2. Click on '....' -->
+<!-- 3. Scroll down to '....' -->
+<!-- 4. See error -->
