@@ -1,52 +1,5 @@
                                                     # Codeowners for the project
-
-
-
 # Global owner for everything in this repo
 * @rt4914
 
 # Owners/teams for backend (Ruby on Rails)
-app/     
-config/  
-db/      
-lib/     
-
-# Owners/teams for frontend (React)
-app/javascript/   
-public/           
-config/webpack/   
-
-# Owners/teams for styling (Tailwind CSS)
-app/assets/stylesheets/  
-app/javascript/styles/    
-
-# Specific owners/teams for specific files
-Gemfile          
-Gemfile.lock     
-package.json     
-yarn.lock        
-tailwind.config.js 
-postcss.config.js  
-
-# Owners/teams for documentation
-docs/     
-
-# Owners/teams for tests
-spec/     
-test/     
-
-# Owners/teams for CI/CD configuration
-.github/workflows/ 
-
-# Owners/teams for database migrations
-db/migrate/ 
-
-# Owners/teams for API
-app/controllers/api/ 
-app/serializers/ 
-
-# Owners/teams for views
-app/views/ 
-
-# Owners/teams for helpers
-app/helpers/ 
