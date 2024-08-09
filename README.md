@@ -95,7 +95,7 @@ rails db:migrate
 rails db:seed
 ```
 
-### Usage:
+<!-- ### Usage:
 
 Start the Rails server:
 
@@ -106,9 +106,9 @@ rails server
 For the frontend, navigate to the frontend directory and start the React development server:
 
 ```sh
-cd frontend
+cd KlincCon-frontend
 npm start
-```
+``` -->
 
 # 🔧 Configuration <a name="configuration"></a>
 
@@ -149,18 +149,6 @@ KlinicCon can be deployed to various cloud platforms. choose your preferred plat
 
 - [GitHub](https://github.com/rt4914)
 - [LinkedIn](https://www.linkedin.com/in/rajat-talesra-59068582/)
-  👤
-
-👤
-
-# 🔭 Future Features <a name="future-features"></a>
-
-- [ ] **Mobile App Integration**
-- [ ] **Telemedicine Integration**
-- [ ] **AI-Powered Diagnosis**
-- [ ] **Integration with Wearable Devices**
-- [ ] **Integration with IoT Devices**
-- [ ] **Integration with Medical Devices**
 
 # 🤝 Contributing <a name="contributing"></a>
 
