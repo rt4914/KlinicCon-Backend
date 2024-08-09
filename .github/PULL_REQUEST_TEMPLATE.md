@@ -8,7 +8,7 @@
 
 -->
 
-Resolves #01 <!-- issue number -->
+Resolves #<ISSUE_NUMBER>
 
 ### Description
 
