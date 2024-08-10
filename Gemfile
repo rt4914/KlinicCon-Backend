@@ -49,6 +49,10 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
 
   gem 'faker'
+
+  gem 'mailcatcher', '~> 0.2.4'
+
+  gem 'thin', '~> 1.8', '>= 1.8.2'
 end
 
 group :development do
