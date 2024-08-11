@@ -49,6 +49,15 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
 
   gem 'faker'
+
+  # Money-rails: Integrates the Money gem with Rails
+  # Provides a comprehensive solution for handling money and currency conversions
+  gem 'money-rails'
+
+  # OXR: Ruby wrapper for the Open Exchange Rates API
+  # Allows fetching real-time and historical exchange rates
+  gem 'oxr'
+
 end
 
 group :development do
