@@ -73,4 +73,11 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  # Use mailcatcher for email delivery in development
+  # Run `mailcatcher` in the terminal to start the SMTP server and web interface
+  # Access the web interface at http://127.0.0.1:1080 to view captured emails
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { address: '127.0.0.1', port: 1025 }
+
 end
