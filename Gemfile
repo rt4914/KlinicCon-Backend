@@ -50,6 +50,20 @@ group :development, :test do
 
   gem 'faker'
 
+  gem 'mailcatcher', '~> 0.2.4'
+
+  # This gem shall be installed as without this we are getting
+  # compilation error like shown below
+  # An error occurred while installing thin (1.6.2), and Bundler cannot
+  # continue.
+  #
+  # In Gemfile:
+  #   mailcatcher was resolved to 0.2.4, which depends on
+  #     skinny was resolved to 0.2.4, which depends on
+  #       thin
+  # Hence as dependency with thin is needed we have to install it separately
+  gem 'thin', '~> 1.8', '>= 1.8.2'
+
   # Money-rails: Integrates the Money gem with Rails
   # Provides a comprehensive solution for handling money and currency conversions
   gem 'money-rails'
