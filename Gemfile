@@ -68,9 +68,8 @@ group :development, :test do
   # Provides a comprehensive solution for handling money and currency conversions
   gem 'money-rails'
 
-  # OXR: Ruby wrapper for the Open Exchange Rates API
-  # Allows fetching real-time and historical exchange rates
-  gem 'oxr'
+  # A gem that calculates the exchange rate using published rates from open-exchange-rates
+  gem 'money-open-exchange-rates'
 
 end
 
