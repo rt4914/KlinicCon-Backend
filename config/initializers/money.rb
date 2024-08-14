@@ -1,15 +1,16 @@
 # encoding : utf-8
+require 'money/bank/open_exchange_rates_bank'
 
 MoneyRails.configure do |config|
 
   # To set the default currency
   #
-  # config.default_currency = :usd
+  config.default_currency = :usd
+  oxr = Money::Bank::OpenExchangeRatesBank.new(Money::RatesStore::Memory.new)
+  oxr.app_id = 'your app id from https://openexchangerates.org/signup'
+  oxr.update_rates
+  config.default_bank = oxr
 
-  # Set default bank object
-  #
-  # Example:
-  # config.default_bank = EuCentralBank.new
 
   # Add exchange rates to current money bank object.
   # (The conversion rate refers to one direction only)
