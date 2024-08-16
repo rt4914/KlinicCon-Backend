@@ -63,6 +63,14 @@ group :development, :test do
   #       thin
   # Hence as dependency with thin is needed we have to install it separately
   gem 'thin', '~> 1.8', '>= 1.8.2'
+
+  # Money-rails: Integrates the Money gem with Rails
+  # Provides a comprehensive solution for handling money and currency conversions
+  gem 'money-rails'
+
+  # A gem that calculates the exchange rate using published rates from open-exchange-rates
+  gem 'money-open-exchange-rates'
+
 end
 
 group :development do
