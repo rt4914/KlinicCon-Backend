@@ -105,14 +105,14 @@ cd KlincCon-frontend
 npm start
 ``` -->
 
-# 🔧 Configuration <a name="configuration"></a>
+<!-- # 🔧 Configuration <a name="configuration"></a>
 
 KlinicCon uses environment variables for configuration. Create a `.env` file in the root directory with the following variables:
 
 ```
 JWT_SECRET=your_jwt_secret_key
 RAILS_ENV=development
-```
+``` -->
 
 <!-- # 🧪 Running Tests <a name="running-tests"></a>
 
