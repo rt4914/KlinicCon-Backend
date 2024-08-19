@@ -6,7 +6,9 @@ MoneyRails.configure do |config|
   config.default_currency = :usd
   oxr = Money::Bank::OpenExchangeRatesBank.new(Money::RatesStore::Memory.new)
   oxr.app_id = 'your app id from https://openexchangerates.org/signup'
-  oxr.update_rates
+  # Uncomment below line when app_id is there for generating
+  # exchange rates
+  # oxr.update_rates
   config.default_bank = oxr
   # Add exchange rates to current money bank object.
   # (The conversion rate refers to one direction only)
