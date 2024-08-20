@@ -160,19 +160,9 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.3)
-    nokogiri (1.16.7-aarch64-linux)
+    nokogiri (1.16.7-x64-mingw-ucrt)
       racc (~> 1.4)
-    nokogiri (1.16.7-arm-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.7-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.16.7-x86-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.7-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.16.7-x86_64-linux)
-      racc (~> 1.4)
-    pg (1.5.7)
+    pg (1.5.7-x64-mingw-ucrt)
     psych (5.1.2)
       stringio
     puma (6.4.2)
@@ -268,6 +258,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2024.1)
+      tzinfo (>= 1.0.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -280,12 +272,7 @@ GEM
     zeitwerk (2.6.17)
 
 PLATFORMS
-  aarch64-linux
-  arm-linux
-  arm64-darwin
-  x86-linux
-  x86_64-darwin
-  x86_64-linux
+  x64-mingw-ucrt
 
 DEPENDENCIES
   bootsnap
@@ -308,7 +295,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 3.3.2p78
+   ruby 3.3.4p94
 
 BUNDLED WITH
    2.5.11
