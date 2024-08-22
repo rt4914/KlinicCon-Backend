@@ -49,3 +49,5 @@ group :development do
   # A gem that calculates the exchange rate using published rates from open-exchange-rates
   gem 'money-open-exchange-rates'
 end
+
+gem "devise", "~> 4.9"
