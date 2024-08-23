@@ -114,6 +114,8 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.7.2)
+    jsonapi-serializer (2.2.0)
+      activesupport (>= 4.2)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -170,6 +172,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (2.2.9)
+    rack-cors (2.0.2)
+      rack (>= 2.0.0)
     rack-protection (3.2.0)
       base64 (>= 0.1.0)
       rack (~> 2.2, >= 2.2.4)
@@ -261,11 +265,13 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   faker
+  jsonapi-serializer
   mailcatcher (~> 0.2.4)
   money-open-exchange-rates
   money-rails
   pg (~> 1.1)
   puma (>= 5.0)
+  rack-cors
   rails (~> 7.1.3, >= 7.1.3.4)
   thin (~> 1.8, >= 1.8.2)
   tzinfo-data
