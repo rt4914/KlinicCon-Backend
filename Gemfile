@@ -54,3 +54,4 @@ gem 'rack-cors'
 
 gem 'devise', '~> 4.9'
 gem 'jsonapi-serializer'
+
