@@ -49,3 +49,9 @@ group :development do
   # A gem that calculates the exchange rate using published rates from open-exchange-rates
   gem 'money-open-exchange-rates'
 end
+
+gem 'rack-cors'
+
+gem 'devise', '~> 4.9'
+gem 'jsonapi-serializer'
+
