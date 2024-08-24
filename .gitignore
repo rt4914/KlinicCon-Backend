@@ -35,3 +35,5 @@
 /config/master.key
 
 .DS_Store
+/.idea/*.xml
+/.idea/KlinicCon-Backend.iml
