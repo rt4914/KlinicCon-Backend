@@ -48,7 +48,7 @@ group :development do
 
   # A gem that calculates the exchange rate using published rates from open-exchange-rates
   gem 'money-open-exchange-rates'
-  #The Bullet gem is designed to help you increase your application's performance by reducing the number of queries it makes. It will watch your queries while you develop your application and notify you when you should add eager loading (N+1 queries), when you're using eager loading that isn't necessary and when you should use counter cache.
+
   gem 'bullet'
 end
 
