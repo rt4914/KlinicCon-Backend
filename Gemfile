@@ -48,6 +48,8 @@ group :development do
 
   # A gem that calculates the exchange rate using published rates from open-exchange-rates
   gem 'money-open-exchange-rates'
+
+  gem 'bullet'
 end
 
 gem 'rack-cors'
