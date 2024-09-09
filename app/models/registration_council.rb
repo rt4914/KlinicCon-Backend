@@ -1,0 +1,2 @@
+class RegistrationCouncil < ApplicationRecord
+end
