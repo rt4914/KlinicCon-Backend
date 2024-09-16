@@ -1,3 +1,2 @@
 class Degree < ApplicationRecord
-
 end

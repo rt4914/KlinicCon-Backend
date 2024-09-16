@@ -1,3 +1,2 @@
 class Specialization < ApplicationRecord
-
 end
