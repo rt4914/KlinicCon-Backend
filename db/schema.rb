@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_11_094334) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_27_173326) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,6 +45,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_094334) do
     t.index ["degree_id"], name: "index_doctor_profiles_on_degree_id"
     t.index ["institute_id"], name: "index_doctor_profiles_on_institute_id"
     t.index ["specialization_id"], name: "index_doctor_profiles_on_specialization_id"
+  end
+
+  create_table "establishments", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "address_id", null: false
+    t.decimal "latitude", precision: 10, scale: 6, null: false
+    t.decimal "longitude", precision: 10, scale: 6, null: false
+    t.decimal "maps_location", precision: 10, scale: 6
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_establishments_on_address_id"
   end
 
   create_table "institutes", force: :cascade do |t|
@@ -104,6 +115,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_094334) do
   add_foreign_key "doctor_profiles", "degrees"
   add_foreign_key "doctor_profiles", "institutes"
   add_foreign_key "doctor_profiles", "specializations"
+  add_foreign_key "establishments", "addresses"
   add_foreign_key "patient_profiles", "addresses"
   add_foreign_key "users", "doctor_profiles"
   add_foreign_key "users", "patient_profiles"
