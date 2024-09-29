@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_28_152815) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_29_170706) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,6 +91,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_28_152815) do
     t.index ["patient_profile_id"], name: "index_reviews_on_patient_profile_id"
   end
 
+  create_table "services", force: :cascade do |t|
+    t.bigint "doctor_profile_id"
+    t.bigint "establishment_id"
+    t.string "name", null: false
+    t.money "amount", scale: 2, null: false
+    t.integer "day_of_week", null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
+    t.integer "slot_length_in_minutes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doctor_profile_id"], name: "index_services_on_doctor_profile_id"
+    t.index ["establishment_id"], name: "index_services_on_establishment_id"
+  end
+
   create_table "specializations", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -128,6 +143,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_28_152815) do
   add_foreign_key "patient_profiles", "addresses"
   add_foreign_key "reviews", "doctor_profiles"
   add_foreign_key "reviews", "patient_profiles"
+  add_foreign_key "services", "doctor_profiles"
+  add_foreign_key "services", "establishments"
   add_foreign_key "users", "doctor_profiles"
   add_foreign_key "users", "patient_profiles"
 end
