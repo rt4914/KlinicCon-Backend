@@ -31,6 +31,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_105833) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "doctor_establishments", force: :cascade do |t|
+    t.bigint "doctor_profile_id", null: false
+    t.bigint "establishment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doctor_profile_id"], name: "index_doctor_establishments_on_doctor_profile_id"
+    t.index ["establishment_id"], name: "index_doctor_establishments_on_establishment_id"
+  end
+
   create_table "doctor_profiles", force: :cascade do |t|
     t.string "name"
     t.string "gender"
@@ -137,6 +146,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_105833) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "doctor_establishments", "doctor_profiles"
+  add_foreign_key "doctor_establishments", "establishments"
   add_foreign_key "doctor_profiles", "degrees"
   add_foreign_key "doctor_profiles", "institutes"
   add_foreign_key "doctor_profiles", "specializations"
