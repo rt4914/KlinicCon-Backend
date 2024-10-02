@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_01_131601) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_02_105833) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,13 +95,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_01_131601) do
     t.bigint "doctor_profile_id"
     t.bigint "establishment_id"
     t.string "name", null: false
-    t.money "amount", scale: 2, null: false
     t.string "day_of_week", null: false
     t.datetime "start_time", null: false
     t.datetime "end_time", null: false
     t.integer "slot_length_in_minutes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "USD", null: false
     t.index ["doctor_profile_id"], name: "index_services_on_doctor_profile_id"
     t.index ["establishment_id"], name: "index_services_on_establishment_id"
   end
