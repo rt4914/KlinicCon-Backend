@@ -3,6 +3,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   include RackSessionFix
   respond_to :json
 
+  def create
+    user = User.new(
+      email: params[:user][:email],
+      password: params[:user][:password],
+      password_confirmation: params[:user][:password_confirmation]
+    )
+    user_type = params[:user][:user_type]
+    user.create_profile!(user_type)
+    user.save
+    respond_with user
+  end
+
   private
   def respond_with(resource, _opts = {})
     if request.method == 'POST' && resource.persisted?
