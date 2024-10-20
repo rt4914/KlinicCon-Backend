@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_02_105833) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_20_101228) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_105833) do
     t.string "pin_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "appointments", force: :cascade do |t|
+    t.bigint "patient_profile_id", null: false
+    t.bigint "service_id", null: false
+    t.datetime "slot_start_time"
+    t.datetime "slot_end_time"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_profile_id"], name: "index_appointments_on_patient_profile_id"
+    t.index ["service_id"], name: "index_appointments_on_service_id"
   end
 
   create_table "degrees", force: :cascade do |t|
@@ -146,6 +158,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_105833) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appointments", "patient_profiles"
+  add_foreign_key "appointments", "services"
   add_foreign_key "doctor_establishments", "doctor_profiles"
   add_foreign_key "doctor_establishments", "establishments"
   add_foreign_key "doctor_profiles", "degrees"
