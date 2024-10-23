@@ -50,6 +50,8 @@ group :development do
   gem 'money-open-exchange-rates'
 
   gem 'bullet'
+
+  gem 'dotenv-rails'
 end
 
 gem 'rack-cors'
