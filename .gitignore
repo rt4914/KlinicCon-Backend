@@ -33,8 +33,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-# Ignore credentials.yml.enc
-/config/credentials.yml.enc
+
 
 
 .DS_Store
