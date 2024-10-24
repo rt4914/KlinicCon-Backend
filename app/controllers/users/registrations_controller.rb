@@ -10,7 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       password_confirmation: params[:user][:password_confirmation]
     )
     user_type = params[:user][:user_type]
-    user.create_profile!(user_type)
+    user.create_empty_profile!(user_type)
     user.save
     respond_with user
   end

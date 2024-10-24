@@ -9,10 +9,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable, :pwned_password,
          :jwt_authenticatable, jwt_revocation_strategy: self
 
-  def create_profile!(user_type)
-    if user_type == 'patient'
+  def create_empty_profile!(user_type)
+    if user_type == "patient"
       create_patient_profile!
-    elsif user_type == 'doctor'
+    elsif user_type == "doctor"
       create_doctor_profile!
     end
   end
