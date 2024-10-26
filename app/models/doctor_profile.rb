@@ -4,4 +4,3 @@ class DoctorProfile < ApplicationRecord
   belongs_to :institute
   has_one :user
 end
-

@@ -37,6 +37,3 @@
 .DS_Store
 /.idea/*.xml
 /.idea/KlinicCon-Backend.iml
-
-# Ignore credential for decrypting credentials and more.
-/config/credentials.yml.enc

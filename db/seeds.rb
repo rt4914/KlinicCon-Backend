@@ -1,7 +1,7 @@
 # encoding : utf-8
 require 'faker'
 
-# Create specializations
+# This will create specializations
 specializations = [
   "General Surgeon",
   "Cardiologist",
@@ -17,7 +17,7 @@ specializations = [
   Specialization.find_or_create_by!(name: specialization)
 end
 
-# Create degrees
+# This will create degrees
 degrees = [
   "Doctor of Medicine (MD)",
   "Bachelor of Medicine, Bachelor of Surgery (MBBS)",
@@ -33,7 +33,7 @@ degrees = [
   Degree.find_or_create_by!(name: degree)
 end
 
-# Create institutes
+# This will create institutes
 institutes = [
   "All India Institute of Medical Sciences (AIIMS)",
   "Christian Medical College (CMC), Vellore",
@@ -59,7 +59,7 @@ institutes = [
   Institute.find_or_create_by!(name: institute)
 end
 
-# Create registration councils
+# This will create registration councils
 registration_councils = [
   "Medical Council of India (MCI)",
   "Delhi Medical Council",
@@ -75,7 +75,7 @@ registration_councils = [
   RegistrationCouncil.find_or_create_by!(name: council)
 end
 
-# Create address for establishments and patients
+# This will create a single address for establishments and patients
 address = Address.create!(
   address_line_1: Faker::Address.street_address,
   address_line_2: Faker::Address.secondary_address,
@@ -85,78 +85,92 @@ address = Address.create!(
   pin_code: Faker::Address.zip_code
 )
 
-# Create establishments and associate with address
+# This will create a single establishment and associate with address
 establishment = Establishment.create!(
   name: Faker::Company.name,
-  address_id: address.id,   # associate with address using address_id
+  address_id: address.id,
   latitude: Faker::Address.latitude,
   longitude: Faker::Address.longitude,
-  maps_location: "https://goo.gl/maps/#{Faker::Address.street_address.gsub(' ', '-')}"  # Example for a map location
+  maps_location: "https://goo.gl/maps/#{Faker::Address.street_address.gsub(' ', '-')}"
 )
 
-# Create doctor profiles
-doctor_profile = DoctorProfile.create!(
-  name: Faker::Name.name,
-  gender: ["Male", "Female"].sample,
-  date_of_birth: Faker::Date.birthday(min_age: 25, max_age: 65),
-  specialization: specializations.sample,
-  degree: degrees.sample,
-  institute: institutes.sample,
-  year_of_completion: Faker::Number.between(from: 2000, to: 2022),
-  year_of_experience: Faker::Number.between(from: 1, to: 20)
-)
+# This will create 20 doctor profiles
+doctor_profiles = Array.new(20) do
+  DoctorProfile.create!(
+    name: Faker::Name.name,
+    gender: ["Male", "Female"].sample,
+    date_of_birth: Faker::Date.birthday(min_age: 25, max_age: 65),
+    specialization: specializations.sample,
+    degree: degrees.sample,
+    institute: institutes.sample,
+    year_of_completion: Faker::Number.between(from: 2000, to: 2022),
+    year_of_experience: Faker::Number.between(from: 1, to: 20)
+  )
+end
 
-# Create doctor establishment association
-DoctorEstablishment.create!(
-  doctor_profile: doctor_profile,
-  establishment: establishment
-)
+# This will create doctor establishment associations for each doctor profile
+doctor_profiles.each do |doctor_profile|
+  DoctorEstablishment.create!(
+    doctor_profile: doctor_profile,
+    establishment: establishment
+  )
+end
 
-# Create patient profiles
-patient_profile = PatientProfile.create!(
-  name: Faker::Name.name,
-  gender: ["Male", "Female"].sample,
-  date_of_birth: Faker::Date.birthday(min_age: 0, max_age: 100),
-  blood_group: ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"].sample,
-  address: address
-)
+# This will create 50 patient profiles
+patient_profiles = Array.new(50) do
+  PatientProfile.create!(
+    name: Faker::Name.name,
+    gender: ["Male", "Female"].sample,
+    date_of_birth: Faker::Date.birthday(min_age: 0, max_age: 100),
+    blood_group: ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"].sample,
+    address: address
+  )
+end
 
-# Create reviews for the doctor from patients
-Review.create!(
-  patient_profile: patient_profile,
-  doctor_profile: doctor_profile
-)
+# This will create 20-50 reviews for random doctor and patient combinations
+Faker::Number.between(from: 20, to: 50).times do
+  Review.create!(
+    patient_profile: patient_profiles.sample,
+    doctor_profile: doctor_profiles.sample
+  )
+end
 
-# Create services offered by the doctor at the establishment
-Service.create!(
-  doctor_profile: doctor_profile,
-  establishment: establishment,
-  name: "Consultation",
-  day_of_week: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].sample,
-  start_time: DateTime.now.change({ hour: Faker::Number.between(from: 9, to: 11), min: 0 }),
-  end_time: DateTime.now.change({ hour: Faker::Number.between(from: 12, to: 17), min: 0 }),
-  slot_length_in_minutes: [15, 30, 45].sample,
-  amount_cents: Faker::Number.between(from: 2000, to: 10000),  # Price in cents
-  amount_currency: "INR"
-)
+# This will create 20-50 services for random doctors at the establishment
+Faker::Number.between(from: 20, to: 50).times do
+  Service.create!(
+    doctor_profile: doctor_profiles.sample,
+    establishment: establishment,
+    name: "Consultation",
+    day_of_week: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].sample,
+    start_time: DateTime.now.change({ hour: Faker::Number.between(from: 9, to: 11), min: 0 }),
+    end_time: DateTime.now.change({ hour: Faker::Number.between(from: 12, to: 17), min: 0 }),
+    slot_length_in_minutes: [15, 30, 45].sample,
+    amount_cents: Faker::Number.between(from: 2000, to: 10000),
+    amount_currency: "INR"
+  )
+end
 
-# Create user associated with a patient profile
-User.create!(
-  email: Faker::Internet.email,
-  password: "SecureP@ssw0rd4567!",  # This will automatically be encrypted by Devise
-  password_confirmation: "SecureP@ssw0rd4567!",
-  patient_profile: patient_profile,
-  jti: SecureRandom.uuid
-)
+# This will create user accounts associated with the patient profiles
+patient_profiles.each do |patient_profile|
+  User.create!(
+    email: Faker::Internet.email,
+    password: "SecureP@ssw0rd4567!",
+    password_confirmation: "SecureP@ssw0rd4567!",
+    patient_profile: patient_profile,
+    jti: SecureRandom.uuid
+  )
+end
 
-# Create user associated with a doctor profile
-User.create!(
-  email: Faker::Internet.email,
-  password: "D0ct0rSecure@102024",  # This will automatically be encrypted by Devise
-  password_confirmation: "D0ct0rSecure@102024",
-  doctor_profile: doctor_profile,
-  jti: SecureRandom.uuid
-)
+# This will create user accounts associated with the doctor profiles
+doctor_profiles.each do |doctor_profile|
+  User.create!(
+    email: Faker::Internet.email,
+    password: "D0ct0rSecure@102024",
+    password_confirmation: "D0ct0rSecure@102024",
+    doctor_profile: doctor_profile,
+    jti: SecureRandom.uuid
+  )
+end
 
-puts "Seeding completed Okay!"
-
+puts "I think seeding will complete successfully now!"
+print "Also since you'll see deprecation warnings because of the I18n localization part I commented out in /money.rb"
