@@ -105,6 +105,10 @@ GEM
     devise-pwned_password (0.1.12)
       devise (~> 4)
       pwned (~> 2.4)
+    dotenv (3.1.4)
+    dotenv-rails (3.1.4)
+      dotenv (= 3.1.4)
+      railties (>= 6.1)
     drb (2.2.1)
     dry-auto_inject (1.0.1)
       dry-core (~> 1.0)
@@ -298,6 +302,7 @@ DEPENDENCIES
   devise (~> 4.9)
   devise-jwt
   devise-pwned_password (~> 0.1.12)
+  dotenv-rails
   faker
   jsonapi-serializer
   mailcatcher (~> 0.2.4)
