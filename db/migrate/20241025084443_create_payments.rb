@@ -1,7 +1,8 @@
 class CreatePayments < ActiveRecord::Migration[6.1]
   def change
     create_table :payments do |t|
-      t.decimal :amount, precision: 10, scale: 2, null: false 
+      t.integer :amount_cents, null: false  # Store amount in cents for precision
+      t.string :amount_currency, default: "USD", null: false  # Currency type
       t.integer :stripe_id, null: false
       t.integer :appointment_id, null: false
 

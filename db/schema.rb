@@ -86,7 +86,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_25_084443) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.decimal "amount", precision: 10, scale: 2, null: false
+    t.integer "amount_cents", null: false
+    t.string "amount_currency", default: "USD", null: false
     t.integer "stripe_id", null: false
     t.integer "appointment_id", null: false
     t.datetime "created_at", null: false
