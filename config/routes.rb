@@ -15,4 +15,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  namespace :api do
+    namespace :v1 do
+      get 'doctors/by_city', to: 'doctors#by_city'
+      post 'doctors', to: 'doctors#create'
+      resources :services, only: [:index] # This line adds the GET /api/v1/services route
+      resources :establishments, only: [:index] # This line adds the GET /api/v1/establishments route
+    end
+  end
 end

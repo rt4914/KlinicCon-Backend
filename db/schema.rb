@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_25_084443) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_29_134608) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,6 +63,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_25_084443) do
     t.integer "year_of_experience"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "city"
     t.index ["degree_id"], name: "index_doctor_profiles_on_degree_id"
     t.index ["institute_id"], name: "index_doctor_profiles_on_institute_id"
     t.index ["specialization_id"], name: "index_doctor_profiles_on_specialization_id"
@@ -76,6 +77,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_25_084443) do
     t.string "maps_location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "city"
     t.index ["address_id"], name: "index_establishments_on_address_id"
   end
 
