@@ -11,4 +11,3 @@ class Payment < ApplicationRecord
     validates :stripe_id, presence: true, uniqueness: true
     validates :appointment_id, presence: true, uniqueness: true  
   end
-  

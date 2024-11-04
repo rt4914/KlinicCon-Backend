@@ -18,10 +18,20 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      resources :doctors, only: [:index] do
+        collection do
+          get 'all_data' 
+        end
+      end
       get 'doctors/by_city', to: 'doctors#by_city'
       post 'doctors', to: 'doctors#create'
       resources :services, only: [:index] # This line adds the GET /api/v1/services route
       resources :establishments, only: [:index] # This line adds the GET /api/v1/establishments route
+
+      # Custom route for establishments by city
+      get 'establishments/by_city', to: 'establishments#by_city'
+       # Custom route for services by city
+      get 'services/by_city', to: 'services#by_city'
     end
   end
 end
