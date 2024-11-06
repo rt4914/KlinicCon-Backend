@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_25_084443) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_29_230329) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -118,6 +118,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_25_084443) do
     t.bigint "doctor_profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rating"
+    t.string "comment", limit: 500
     t.index ["doctor_profile_id"], name: "index_reviews_on_doctor_profile_id"
     t.index ["patient_profile_id"], name: "index_reviews_on_patient_profile_id"
   end
@@ -177,6 +179,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_25_084443) do
   add_foreign_key "doctor_profiles", "specializations"
   add_foreign_key "establishments", "addresses"
   add_foreign_key "patient_profiles", "addresses"
+  add_foreign_key "payments", "appointments"
   add_foreign_key "reviews", "doctor_profiles"
   add_foreign_key "reviews", "patient_profiles"
   add_foreign_key "services", "doctor_profiles"
