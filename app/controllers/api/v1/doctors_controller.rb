@@ -1,18 +1,17 @@
-# app/controllers/api/v1/doctor_controller.rb
 module Api
     module V1
       class DoctorsController < ApplicationController
         def all_data
-          # Fetch all doctor profiles
+        
           doctor_profiles = DoctorProfile.includes(:services, :establishments)
         
-          # Fetch all services
+        
           services = Service.includes(:doctor_profile, :establishment)
         
-          # Fetch all establishments
+         
           establishments = Establishment.all
         
-          # Render the response with structured data
+    
           render json: {
             doctors: doctor_profiles.map { |doctor| 
               {
@@ -130,19 +129,19 @@ module Api
         def by_city
           city = params[:city]
           
-          # Fetch all establishments in the specified city
+       
           establishments = Establishment.where(city: city)
   
-          # Fetch doctor profiles through DoctorEstablishment join table
+        
           doctor_profiles = DoctorProfile.joins(:doctor_establishments)
                                          .where(doctor_establishments: { establishment_id: establishments.pluck(:id) })
   
-          # Fetch services related to doctors and establishments in the specified city
+          
           services = Service.joins(:doctor_profile, :establishment)
                             .where(doctor_profiles: { id: doctor_profiles.pluck(:id) })
                             .where(establishments: { city: city })
 
-          # Format the services to include the city from the establishment
+       
           formatted_services = services.map do |service|
             {
               id: service.id,
