@@ -83,9 +83,9 @@ addresses = Array.new(40) do
 end
 
 establishments = Array.new(20) do |index|
-  Establishment.create!(
+  Establishment.create_or_find_by!(
     name: Faker::Company.name,
-    address: addresses[index],
+    address_id: addresses[index].id,
     latitude: Faker::Address.latitude,
     longitude: Faker::Address.longitude,
     maps_location: "https://goo.gl/maps/#{Faker::Address.street_address.gsub(' ', '-')}"
@@ -124,12 +124,14 @@ end
 # TODO: Review model should contain rating and comment. This is missing currently.
 # Once that is fixed we should add fake data too.
 
-# Faker::Number.between(from: 20, to: 50).times do
-#   Review.create!(
-#     patient_profile: patient_profiles.sample,
-#     doctor_profile: doctor_profiles.sample
-#   )
-# end
+Faker::Number.between(from: 20, to: 50).times do
+  Review.create!(
+    patient_profile: patient_profiles.sample,
+    doctor_profile: doctor_profiles.sample,
+    rating: Faker::Number.between(from: 1, to: 5),
+    comment: Faker::Lorem.paragraph(sentence_count: 2)
+  )
+end
 
 Faker::Number.between(from: 20, to: 50).times do
   Service.create!(
