@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_25_084443) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_06_140928) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,6 +76,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_25_084443) do
     t.string "maps_location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "city"
+    t.string "address"
     t.index ["address_id"], name: "index_establishments_on_address_id"
   end
 
@@ -118,6 +120,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_25_084443) do
     t.bigint "doctor_profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rating", null: false
+    t.text "comment"
     t.index ["doctor_profile_id"], name: "index_reviews_on_doctor_profile_id"
     t.index ["patient_profile_id"], name: "index_reviews_on_patient_profile_id"
   end
