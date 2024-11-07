@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -15,4 +16,23 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  namespace :api do
+    namespace :v1 do
+      resources :doctors, only: [:index] do
+        collection do
+          get 'all_data' 
+        end
+      end
+      get 'doctors/by_city', to: 'doctors#by_city'
+      post 'doctors', to: 'doctors#create'
+      resources :services, only: [:index] 
+      resources :establishments, only: [:index] 
+
+     
+      get 'establishments/by_city', to: 'establishments#by_city'
+     
+      get 'services/by_city', to: 'services#by_city'
+    end
+  end
 end
