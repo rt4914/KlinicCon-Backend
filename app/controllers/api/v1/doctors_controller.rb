@@ -1,15 +1,12 @@
+# frozen_string_literal: true
 module Api
     module V1
       class DoctorsController < ApplicationController
         def all_data
         
-          doctor_profiles = DoctorProfile.includes(:services, :establishments)
-        
-        
-          services = Service.includes(:doctor_profile, :establishment)
-        
-         
-          establishments = Establishment.all
+          doctor_profiles = DoctorProfile.includes(services: { establishment: :address }, establishments: :address)
+          services = Service.includes(:doctor_profile, establishment: :address)
+          establishments = Establishment.includes(:address)
         
     
           render json: {
@@ -27,8 +24,8 @@ module Api
                   {
                     id: establishment.id,
                     name: establishment.name,
-                    city: establishment.city,
-                    address: establishment.address
+                    city: establishment.address&.city, 
+                    address: "#{establishment.address&.address_line_1}, #{establishment.address&.address_line_2}"
                   }
                 },
                 services: doctor.services.map { |service| 
@@ -41,8 +38,8 @@ module Api
                     start_time: service.start_time,
                     end_time: service.end_time,
                     establishment_id: service.establishment_id,
-                    city: service.establishment.city, # Accessing city from the establishment
-                    doctor_name: doctor.name # Accessing doctor's name
+                    city: service.establishment&.address&.city,
+                    doctor_name: doctor.name 
                   }
                 }
               }
@@ -57,7 +54,7 @@ module Api
                 start_time: service.start_time,
                 end_time: service.end_time,
                 establishment_id: service.establishment_id,
-                city: service.establishment.city,
+                city: service.establishment&.address&.city,
                 doctor_name: service.doctor_profile.name 
               }
             },
@@ -65,8 +62,8 @@ module Api
               {
                 id: establishment.id,
                 name: establishment.name,
-                city: establishment.city,
-                address: establishment.address 
+                city: establishment.address&.city, 
+                address: "#{establishment.address&.address_line_1}, #{establishment.address&.address_line_2}"
               }
             }
           }, status: :ok
@@ -87,10 +84,9 @@ module Api
             end
         end
         def index
-          # Fetch all doctor profiles and preload related establishments and services
-          doctor_profiles = DoctorProfile.includes(:services, :establishments)
-  
-          # Render the response with nested data
+       
+          doctor_profiles = DoctorProfile.includes(services: { establishment: :address }, establishments: :address)
+       
           render json: doctor_profiles.map { |doctor|
             {
               id: doctor.id,
@@ -105,8 +101,8 @@ module Api
                 {
                   id: establishment.id,
                   name: establishment.name,
-                  city: establishment.city,
-                  address: establishment.address # Include other fields as necessary
+                  city: establishment.address&.city, 
+                  address: "#{establishment.address&.address_line_1}, #{establishment.address&.address_line_2}" 
                 }
               },
               services: doctor.services.map { |service|
@@ -120,7 +116,7 @@ module Api
                   start_time: service.start_time,
                   end_time: service.end_time,
                   establishment_id: service.establishment_id,
-                  city: establishment&.city
+                  city: service.establishment&.address&.city
                 }
               }
             }
@@ -130,7 +126,8 @@ module Api
           city = params[:city]
           
        
-          establishments = Establishment.where(city: city)
+          establishments = Establishment.joins(:address)
+          .where(addresses: { city: city })
   
         
           doctor_profiles = DoctorProfile.joins(:doctor_establishments)
@@ -139,7 +136,7 @@ module Api
           
           services = Service.joins(:doctor_profile, :establishment)
                             .where(doctor_profiles: { id: doctor_profiles.pluck(:id) })
-                            .where(establishments: { city: city })
+                            .where(establishments: { id: establishments.pluck(:id) })
 
        
           formatted_services = services.map do |service|
@@ -152,13 +149,20 @@ module Api
               start_time: service.start_time,
               end_time: service.end_time,
               establishment_id: service.establishment_id,
-              city: service.establishment.city,
+              city: service.establishment.address.city,
               doctor_name: service.doctor_profile.name 
             }
           end
           render json: {
             doctors: doctor_profiles,
-            establishments: establishments,
+            establishments: establishments.map { |establishment|
+            {
+              id: establishment.id,
+              name: establishment.name,
+              city: establishment.address.city,
+              address: "#{establishment.address.address_line_1}, #{establishment.address.address_line_2}"
+            }
+          },
             services: formatted_services
           }
         end

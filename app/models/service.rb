@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Service < ApplicationRecord
   belongs_to :doctor_profile
   belongs_to :establishment
@@ -5,12 +6,13 @@ class Service < ApplicationRecord
   monetize :amount_cents
 
  
+  scope :by_city, ->(city) {
+    joins(establishment: :address).where(addresses: { city: city })
+  }
+
   def city_name
-    establishment&.city
+    establishment&.address&.city
   end
-
-
-  scope :by_city, ->(city_name) { joins(:establishment).where(establishments: { city: city_name }) }
 
   validates :name, presence: true
   validates :day_of_week, presence: true

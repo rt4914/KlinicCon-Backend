@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class DoctorProfile < ApplicationRecord
   belongs_to :specialization, optional: true
   belongs_to :degree, optional: true
