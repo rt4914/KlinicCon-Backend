@@ -63,6 +63,23 @@ councils = [
   'West Bengal Medical Council'
 ]
 
+cities = [
+"Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai",
+  "Kolkata", "Surat", "Pune", "Jaipur", "Lucknow", "Kanpur", "Nagpur",
+  "Indore", "Thane", "Bhopal", "Visakhapatnam", "Patna", "Vadodara", 
+  "Ghaziabad", "Ludhiana", "Agra", "Nashik", "Faridabad", "Meerut", 
+  "Rajkot", "Kalyan-Dombivli", "Vasai-Virar", "Varanasi", "Srinagar", 
+  "Aurangabad", "Dhanbad", "Amritsar", "Navi Mumbai", "Allahabad", 
+  "Howrah", "Ranchi", "Gwalior", "Jabalpur", "Coimbatore", "Vijayawada", 
+  "Jodhpur", "Madurai", "Raipur", "Kota", "Guwahati", "Chandigarh", 
+  "Solapur", "Hubli–Dharwad", "Mysore", "Tiruchirappalli", "Bareilly", 
+  "Aligarh", "Tiruppur", "Moradabad", "Jalandhar", "Bhubaneswar", 
+  "Salem", "Warangal", "Guntur", "Bhiwandi", "Saharanpur", "Gorakhpur", 
+  "Bikaner", "Amravati", "Noida", "Jamshedpur", "Bhilai", "Cuttack", 
+  "Firozabad", "Kochi", "Nellore", "Bhavnagar", "Dehradun", "Durgapur", 
+  "Asansol", "Rourkela", "Nanded", "Kolhapur", "Ajmer", "Akola"
+]
+
 degrees.each { |name| Degree.find_or_create_by!(name: name) }
 
 specializations.each { |name| Specialization.find_or_create_by!(name: name) }
@@ -85,7 +102,8 @@ end
 establishments = Array.new(20) do |index|
   Establishment.create!(
     name: Faker::Company.name,
-    address: addresses[index],
+    address_id: addresses[index].id,
+    city: cities.sample,
     latitude: Faker::Address.latitude,
     longitude: Faker::Address.longitude,
     maps_location: "https://goo.gl/maps/#{Faker::Address.street_address.gsub(' ', '-')}"
